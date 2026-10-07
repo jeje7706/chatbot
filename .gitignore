@@ -1,0 +1,10 @@
+.venv/
+.uv-python/
+.uv-cache/
+__pycache__/
+*.py[cod]
+.env
+.env.*
+!.env.example
+.chat_history.sqlite3*
+.offline-validation-tmp/

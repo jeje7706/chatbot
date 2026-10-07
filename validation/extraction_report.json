@@ -1,0 +1,30 @@
+{
+  "generated_at": "2026-10-07T07:11:03.456001+00:00",
+  "app_version": "ver3",
+  "files": [
+    {
+      "source": "2024년 9장 공무원여비업무 처리기준.pdf",
+      "sha256": "e74e4d4659db4ca840c84e66dfdfc4736336357a8d44f052b45302426c0055aa",
+      "total_pages": 102,
+      "extracted_pages": 102,
+      "empty_or_missing_pages": [],
+      "characters": 102789,
+      "suspicious_pages": []
+    },
+    {
+      "source": "공무원여비100문100답.pdf",
+      "sha256": "d3f3d7ecaeef6d4913af37c26fe368c97aa5a5b291ae6e58388ed2317fb0bde0",
+      "total_pages": 52,
+      "extracted_pages": 52,
+      "empty_or_missing_pages": [],
+      "characters": 46173,
+      "suspicious_pages": [
+        52
+      ]
+    }
+  ],
+  "chunks": 182,
+  "coverage_pass": true,
+  "quality_requires_review": true,
+  "limitations": "페이지 누락/빈 텍스트/깨진 문자 검사는 자동화했습니다. 표의 열 정렬·읽는 순서·이미지 내용은 PDF 원본과 사람이 대조해야 합니다."
+}

@@ -1,0 +1,54 @@
+{
+  "generated_at": "2026-10-07T07:11:03.476836+00:00",
+  "mode": "offline",
+  "api_requests": 0,
+  "blocked_attempts": 0,
+  "app_version": "ver3",
+  "duration_seconds": 30.53,
+  "failures": 0,
+  "warnings": 2,
+  "status": "PASS_WITH_WARNINGS",
+  "results": [
+    {
+      "name": "모의 검색·답변·화면·대화 저장",
+      "status": "PASS",
+      "detail": "실제 InMemoryVectorStore와 모의 LLM으로 검사. 실제 OpenAI 임베딩 검색 품질 검사는 포함하지 않습니다."
+    },
+    {
+      "name": "페이지 추출",
+      "status": "PASS",
+      "detail": "154페이지, 182청크"
+    },
+    {
+      "name": "추출 품질",
+      "status": "WARN",
+      "detail": "문자가 적거나 깨진 페이지가 있습니다. 원본 대조 필요"
+    },
+    {
+      "name": "후보 범위",
+      "status": "PASS",
+      "detail": "현재 청크 182개와 1:1 일치"
+    },
+    {
+      "name": "후보 인용 검사",
+      "status": "WARN",
+      "detail": "182개 중 검토 필요 16개. 후보 답안의 의미 정확성은 사람 검토 필요"
+    },
+    {
+      "name": "질문 데이터",
+      "status": "PASS",
+      "detail": "등록 질문 4개의 기대 페이지 존재 확인"
+    },
+    {
+      "name": "저장된 평가 보고서",
+      "status": "PASS",
+      "detail": "4개 항목 구조 확인. 이번 실행에서 실제 OpenAI 성능을 재평가하지 않았습니다."
+    },
+    {
+      "name": "API·외부 접속",
+      "status": "PASS",
+      "detail": "API 및 외부 접속 시도 0회. 모든 시도는 차단됩니다."
+    }
+  ],
+  "limitations": "자동 인용/구조/로직 검사입니다. 실제 OpenAI 답변 품질, 임베딩 검색 성능, 원본 표의 의미 정확성은 검증하지 않습니다."
+}

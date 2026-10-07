@@ -1,0 +1,6 @@
+[
+  {"id":"route_sejong","question":"서울 거주·세종 근무자가 서울에서 대구로 바로 출장 가면 운임은 어떻게 지급되나요?","expected_pages":[{"source":"공무원여비100문100답.pdf","page":24}],"required_any":[["세종"],["초과","상한"]],"forbidden":["대전"]},
+  {"id":"jeju_example","question":"제주 2박 3일 출장에서 숙박비가 5만2천 원, 4만7천 원이면 얼마를 받을 수 있나요?","expected_pages":[{"source":"공무원여비100문100답.pdf","page":31}],"required_any":[["99,000","99000","9만9천"],["사례"]],"forbidden":["검증하지 못"]},
+  {"id":"private_scope","question":"민간기업 직원 출장비 기준도 알려주세요.","expected_pages":[{"source":"2024년 9장 공무원여비업무 처리기준.pdf","page":90}],"required_any":[["회사"],["규정"],["공무"]],"forbidden":["검증하지 못"]},
+  {"id":"out_of_scope","question":"화성의 지름은 몇 km인가요?","expected_pages":[],"required_any":[["문서에서 질문에 대한 근거를 찾을 수 없습니다."]],"forbidden":[]}
+]
