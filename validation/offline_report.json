@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-10-07T07:11:03.476836+00:00",
+  "generated_at": "2026-10-07T07:37:22.438056+00:00",
   "mode": "offline",
   "api_requests": 0,
   "blocked_attempts": 0,
-  "app_version": "ver3",
-  "duration_seconds": 30.53,
+  "app_version": "ver5",
+  "duration_seconds": 37.53,
   "failures": 0,
   "warnings": 2,
   "status": "PASS_WITH_WARNINGS",

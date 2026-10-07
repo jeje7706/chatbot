@@ -3,9 +3,37 @@
 Python 3.11 / Streamlit / LangChain Runnable / OpenAI 기반 앱입니다.
 프로젝트 최상단의 app.py를 실행합니다.
 
-제목 옆의 화면 버전은 현재 `ver3`입니다. 기능 변경 시 app.py의
+제목 옆의 화면 버전은 현재 `ver5`입니다. 기능 변경 시 app.py의
 `DISPLAY_VERSION`을 `ver2`, `ver3` 순으로 올립니다. 검색 인덱스용
 `APP_VERSION`과 별도로 관리하여 화면 버전 변경으로 대화를 초기화하지 않습니다.
+
+## Streamlit Community Cloud 배포
+
+GitHub의 `.env`와 `.streamlit/secrets.toml`은 제외 상태를 유지하세요.
+현재 코드 변경을 GitHub에 반영한 뒤 Community Cloud에서 아래를 선택합니다.
+
+- Repository: `jeje7706/chatbot`
+- Branch: `main`
+- Main file path: `app.py`
+- Advanced settings → Python version: `3.11`
+- Advanced settings → Secrets (배포 후에는 App settings → Secrets):
+
+```toml
+OPENAI_API_KEY = "실제 키를 Cloud 설정 화면에만 입력"
+```
+
+코드·README·GitHub 파일에는 실제 키를 입력하지 마세요. 앱은 환경 변수,
+Streamlit Secrets, 로컬 `.env` 순으로 키를 읽습니다. 실제 키가 담긴 Secrets 파일은
+새로 만들 필요 없이 Cloud 설정 화면에 직접 입력하면 됩니다.
+Cloud는 저장소의 `uv.lock`을 인식하므로 별도 requirements.txt를 추가하지 않습니다.
+
+로컬에서는 기존 SQLite 대화를 유지합니다. `.env`를 올리지 않는 Cloud에서는
+이용자별 세션으로 대화를 분리하며 새로고침/세션 종료 시 사라질 수 있습니다.
+Cloud에서 이용자별 장기 보관이 필요하면 인증과 외부 저장소를 별도로 도입해야 합니다.
+Cloud 인스턴스의 로컬 파일을 영구 저장소로 가정하지 마세요.
+
+공개 앱에서는 방문자의 API 사용 비용이 설정한 키에 청구됩니다. 앱의 공유 범위를
+확인하고 배포용 OpenAI 프로젝트와 키를 사용하세요.
 
 ## 검증 및 청크별 참고답안
 
@@ -106,7 +134,8 @@ uv run streamlit run app.py
 - 적용 조건이 부족한 답변은 확정 금액이 포함된 생성 문장을 표시하지 않고 실제 근거 원문과 확인 질문을 먼저 표시합니다.
 - 유효하지 않은 근거 번호는 한 번 재시도하고, 끝내 실패하면 검증 실패라고 구분해 표시합니다.
 - 답변 아래에 파일명, PDF 페이지 번호, 근거 문장을 표시합니다.
-- 이전 답변을 근거로 재사용하지 않습니다. 후속 질문에는 대상과 조건을 명시하세요.
+- 최근 대화 10개를 바탕으로 후속 질문을 독립적인 검색 질문으로 보정합니다. 최신 사용자 조건이 우선이며 모호한 대상은 되묻습니다.
+- 답변에도 대화 문맥을 전달하되 이전 답변을 사실 근거로 재사용하지 않습니다. DATA 검색 원문만 근거로 사용하고 검증합니다.
 - 대화는 `.chat_history.sqlite3`에 자동 저장합니다. 새로고침/서버 재시작/문서 재준비 후에도 복원됩니다.
 - 이 PC의 탭들이 같은 대화를 사용합니다. 사이드바의 **대화 초기화**로 저장된 기록을 지울 수 있습니다. 벡터 DB는 유지됩니다.
 - 대화 저장 파일은 Git에서 제외되며 API 키는 저장하지 않습니다.

@@ -8,3 +8,5 @@ __pycache__/
 !.env.example
 .chat_history.sqlite3*
 .offline-validation-tmp/
+.streamlit/secrets.toml
+.streamlit/secrets.*.toml
